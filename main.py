@@ -3,6 +3,7 @@ from PIL import Image
 from struct import *
 
 def main():
+    number = 0
     for i in range(0,6):
         extension = ".PNG"
         imagename = "Capture"+str(i)
@@ -10,10 +11,14 @@ def main():
         transposed  = colorImage.transpose(Image.ROTATE_90)
         transposed1 = colorImage.transpose(Image.ROTATE_180)
         transposed2 = colorImage.transpose(Image.ROTATE_270)
-        transposed1.save("./allimages/"+imagename+"rot180"+extension)
-        transposed2.save("./allimages/"+imagename+"rot270"+extension)
-        transposed.save("./allimages/"+imagename+"rot90"+extension)
-        colorImage.save("./allimages/"+imagename+extension)
+        number = number + 1
+        colorImage.save("./allimages/imagen"+str(number)+extension)
+        number = number + 1
+        transposed1.save("./allimages/imagen"+str(number)+extension)
+        number = number + 1
+        transposed2.save("./allimages/imagen"+str(number)+extension)
+        number = number + 1
+        transposed.save("./allimages/imagen"+ str(number)+extension)
 
 if __name__ == "__main__":
     main()
